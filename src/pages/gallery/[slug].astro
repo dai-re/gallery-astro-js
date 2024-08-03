@@ -1,0 +1,118 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPost = await getCollection('i');
+  return allPost.map((post: { [x: string]: any; slug: any }) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+  <a
+    href="/gallery"
+    class="bg-gray-500 px-2 rounded-sm text-gray-200 py-1 flex w-22 items-center self-center"
+  >
+    <Icon name="arrow-big-left" class="w-4 h-4" />
+    <span class="ml-1">Back</span>
+  </a>
+  <div
+    class="content flex mt-4 flex-col-reverse gap-4 sm:grid px-4 xs:grid-cols-2 xs:px-9 sm:px-12 md:px-16 lg:px-24"
+  >
+    <div class="prose">
+      <table class="text-gray-500">
+        <tr>
+          <td class="flex items-center gap-2"
+            ><Icon name="mage:caret-right-fill" />Title</td
+          >
+          <td>:</td>
+          <td>{post.data.title}</td>
+        </tr>
+        <tr>
+          <td class="flex items-center gap-2"
+            ><Icon name="mage:alarm-clock-fill" />Date Upload</td
+          >
+          <td>:</td>
+          <td>{post.data.upload}</td>
+        </tr>
+        <tr>
+          <td class="flex items-center gap-2"
+            ><Icon name="mage:alarm-clock-fill" />Date Take</td
+          >
+          <td>:</td>
+          <td>{post.data.take}</td>
+        </tr>
+        <tr>
+          <td class="flex items-center gap-2"
+            ><Icon name="mage:camera-fill" />Af</td
+          >
+          <td>:</td>
+          <td>{post.data.af}</td>
+        </tr>
+        <tr>
+          <td class="flex items-center gap-2">
+            <Icon name="mage:zap-circle-fill" />ISO</td
+          >
+          <td>:</td>
+          <td>{post.data.iso}</td>
+        </tr>
+        <tr>
+          <td class="flex items-center gap-2">
+            <Icon name="mage:lens-fill" />Lens</td
+          >
+          <td>:</td>
+          <td>{post.data.lens}</td>
+        </tr>
+        <tr>
+          <td class="flex items-center gap-2">
+            <Icon name="mage:eye-fill" />Focus</td
+          >
+          <td>:</td>
+          <td>{post.data.focus}</td>
+        </tr>
+        <tr>
+          <td class="flex items-center gap-2">
+            <Icon name="mage:file-2" />Description</td
+          >
+          <td>:</td>
+          <td>{post.data.description}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="flex flex-col items-center justify-center">
+      <Image
+        onclick='document.querySelector(".full-image").classList.toggle("!flex"); document.body.classList.toggle("overflow-hidden")'
+        class="rounded-md"
+        src={post.data.cover}
+        alt={post.data.title}
+        transition:name={post.slug}
+        height={300}
+      />
+      click image to full view!
+    </div>
+  </div>
+  <div class="grow flex flex-col justify-between">
+    <div class="article p-9 prose">
+      <b>Extra: </b>
+      <Content />
+    </div>
+  </div>
+</Layout>
+<div
+  class="hidden flex-col full-image absolute w-screen h-screen gap-4 bg-slate-600/35 items-center justify-center backdrop-blur-sm"
+>
+  <Image src={post.data.cover} alt={post.data.title} />
+  <button
+    class="p-1 font-bold text-white bg-gray-700"
+    onclick="document.querySelector('.full-image').classList.toggle('!flex'); document.body.classList.toggle('overflow-hidden')"
+    >Close</button
+  >
+</div>

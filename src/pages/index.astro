@@ -1,16 +1,27 @@
 ---
-
+import heroImage from '@assets/images/0002.webp';
+import Layout from "@layouts/Layout.astro";
+import { Image } from 'astro:assets';
 ---
+<Layout title='D Gallery'>
+  <div class="hero grow flex items-center justify-center flex-col relative" transition:name="main" >
+    <h1 class="text-3xl my-3 flex items-center gap-3">Welcome to <span class="font-bold flex items-center"><span class="bg-gray-700 px-1 text-cyan-50 flex items-center justify-center font-bold rounded-sm">D</span>Gallery</span></h1>
+    <a href="/gallery" class="bg-gray-700 text-cyan-50 px-2 py-1 rounded-sm " >Goo!</a>
+    <div id="hero-image" class="absolute -z-50">
+      <Image src={heroImage} alt="Gallery Hero Image" width={300} class='opacity-35 grayscale'/>
+    </div>
+  </div>
+</Layout>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+#hero-image {
+  animation: wiggle 20s ease-in-out infinite;
+}
+@keyframes wiggle {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(5deg);}
+  50% {transform: rotate(-5deg);}
+  75% {transform: rotate(5deg);}
+  100% {transform: rotate(0deg);}
+}
+</style>
