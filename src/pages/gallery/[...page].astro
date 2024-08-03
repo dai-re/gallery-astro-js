@@ -29,14 +29,14 @@ const { page } = Astro.props;
     transition:name="main"
   >
     <ul
-      class="grid grid-cols-1xs:grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4"
+      class="grid-cols-1xs:grid-cols-2 grid gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9"
     >
       {
         page.data.map((entry) => (
           <li class="image-list">
             <a href={`/gallery/${entry.slug}`} transition:name={entry.slug}>
               <Image
-                class="rounded-sm h-full object-cover"
+                class="h-full rounded-sm object-cover"
                 src={{
                   height: entry.data.cover.height,
                   src: entry.data.cover.src,
@@ -53,30 +53,30 @@ const { page } = Astro.props;
       }
     </ul>
   </div>
-  <div class="pagination flex items-center self-center gap-4">
+  <div class="pagination flex items-center gap-4 self-center">
     {
       page.url.prev ? (
         <a
-          class="bg-gray-700 text-cyan-50 px-2 py-1 rounded-sm"
+          class="rounded-sm bg-gray-700 px-2 py-1 text-cyan-50"
           href={page.url.prev}
         >
           Prev
         </a>
       ) : (
-        <p class="bg-gray-300 text-cyan-50 px-2 py-1 rounded-sm">Prev</p>
+        <p class="rounded-sm bg-gray-300 px-2 py-1 text-cyan-50">Prev</p>
       )
     }
     {page.currentPage}
     {
       page.url.next ? (
         <a
-          class="bg-gray-700 text-cyan-50 px-2 py-1 rounded-sm"
+          class="rounded-sm bg-gray-700 px-2 py-1 text-cyan-50"
           href={page.url.next}
         >
           Next
         </a>
       ) : (
-        <p class="bg-gray-300 text-cyan-50 px-2 py-1 rounded-sm">Next</p>
+        <p class="rounded-sm bg-gray-300 px-2 py-1 text-cyan-50">Next</p>
       )
     }
   </div>

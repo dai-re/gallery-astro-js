@@ -1,28 +1,61 @@
 ---
 import FootEr from '@components/FootEr.astro';
 import NavBar from '@components/NavBar.astro';
+import { SEO } from 'astro-seo';
 import { ViewTransitions } from 'astro:transitions';
+import Icon from '@assets/images/icon.svg';
+import Background from '@assets/images/bg.webp';
 
 interface Props {
   title: string;
+  description?: string;
+  background?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = "Dai's gallery site", background = Background.src } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <SEO
+      title={title}
+      titleTemplate="%s | DGallery"
+      description={description}
+      extend={{
+        link: [{ rel: 'icon', href: `${Icon.src}` }],
+        meta: [
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0'
+          },
+          { name: 'generator', content: Astro.generator }
+        ]
+      }}
+      openGraph={{
+        basic: {
+          title: `${title}`,
+          type: 'Gallery',
+          image: `${background}`
+        }
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        creator: '03ii00',
+        description: `${description}`,
+        image: `${background}`,
+        imageAlt: `${title}`,
+        site: 'https://gallery.dairew.my.id',
+        title: `${title}`
+      }}
+    />
     <ViewTransitions />
   </head>
   <body
-    class="flex flex-col justify-between min-h-screen text-gray-700 relative"
+    class="relative flex min-h-screen flex-col justify-between text-gray-700"
   >
     <NavBar />
-    <main class="grow flex flex-col justify-between">
+    <main class="flex grow flex-col justify-between">
       <slot />
     </main>
     <FootEr />

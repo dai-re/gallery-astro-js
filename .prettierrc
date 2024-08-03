@@ -1,13 +1,5 @@
 {
-  "plugin": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
-  "printWidth": 80,
-  "proseWrap": "always",
-  "quoteProps": "consistent",
-  "semi": true,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "none",
-  "useTabs": false,
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "overrides": [
     {
       "files": ["*.astro"],
@@ -15,5 +7,13 @@
         "parser": "astro"
       }
     }
-  ]
+  ],
+  "printWidth": 80,
+  "proseWrap": "always",
+  "quoteProps": "consistent",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "useTabs": false
 }

@@ -1,27 +1,57 @@
 ---
 import heroImage from '@assets/images/0002.webp';
-import Layout from "@layouts/Layout.astro";
+import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
 ---
-<Layout title='D Gallery'>
-  <div class="hero grow flex items-center justify-center flex-col relative" transition:name="main" >
-    <h1 class="text-3xl my-3 flex items-center gap-3">Welcome to <span class="font-bold flex items-center"><span class="bg-gray-700 px-1 text-cyan-50 flex items-center justify-center font-bold rounded-sm">D</span>Gallery</span></h1>
-    <a href="/gallery" class="bg-gray-700 text-cyan-50 px-2 py-1 rounded-sm " >Goo!</a>
+
+<Layout title="Home">
+  <div
+    class="hero relative flex grow flex-col items-center justify-center"
+    transition:name="main"
+  >
+    <h1 class="my-3 flex items-center gap-3 text-3xl">
+      Welcome to <span class="flex items-center font-bold"
+        ><span
+          class="flex items-center justify-center rounded-sm bg-gray-700 px-1 font-bold text-cyan-50"
+          >D</span
+        >Gallery</span
+      >
+    </h1>
+    <a
+      href="/gallery"
+      class="animate-bounce rounded-sm bg-gray-700 px-2 py-1 text-cyan-50"
+      >Goo!</a
+    >
     <div id="hero-image" class="absolute -z-50">
-      <Image src={heroImage} alt="Gallery Hero Image" width={300} class='opacity-35 grayscale'/>
+      <Image
+        src={heroImage}
+        alt="Gallery Hero Image"
+        width={300}
+        class="opacity-35 grayscale"
+      />
     </div>
   </div>
 </Layout>
 
 <style>
-#hero-image {
-  animation: wiggle 20s ease-in-out infinite;
-}
-@keyframes wiggle {
-  0% {transform: rotate(0deg);}
-  25% {transform: rotate(5deg);}
-  50% {transform: rotate(-5deg);}
-  75% {transform: rotate(5deg);}
-  100% {transform: rotate(0deg);}
-}
+  #hero-image {
+    animation: wiggle 20s ease-in-out infinite;
+  }
+  @keyframes wiggle {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 </style>
