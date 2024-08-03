@@ -16,10 +16,14 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout title={post.data.title} description={post.data.description} background={post.data.cover.src}>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  background={post.data.cover.src}
+>
   <a
     href="/gallery"
-    class="w-22 flex items-center self-center rounded-sm bg-gray-500 px-2 py-1 text-gray-200"
+    class="w-22 flex items-center self-center rounded-sm bg-gray-500 px-2 py-1 text-cyan-50"
   >
     <Icon name="arrow-big-left" class="h-4 w-4" />
     <span class="ml-1">Back</span>
@@ -90,7 +94,10 @@ const { Content } = await post.render();
             <Icon name="mage:message-dots-upload" />Model</td
           >
           <td>:</td>
-          <td>@{post.data.model.name} <a href={post.data.model.url}>(Link)</a></td>
+          <td
+            >@{post.data.model.name}
+            <a href={post.data.model.url}>(Link)</a></td
+          >
         </tr>
       </table>
     </div>
@@ -114,7 +121,7 @@ const { Content } = await post.render();
   </div>
 </Layout>
 <div
-  class="full-image bottom-0 absolute hidden h-screen w-screen flex-col items-center justify-center gap-4 bg-slate-600/35 backdrop-blur-sm"
+  class="full-image absolute hidden h-screen w-screen flex-col items-center justify-center gap-4 bg-slate-600/35 backdrop-blur-sm"
 >
   <Image
     src={post.data.cover}
