@@ -12,10 +12,12 @@ const allImages = defineCollection({
       cover: image(),
       lens: z.string(),
       focus: z.string(),
-      model: z.object({
-        name: z.string(),
-        url: z.string(),
-      }).optional(),
+      model: z
+        .object({
+          name: z.string(),
+          url: z.string()
+        })
+        .optional()
     })
 });
 
