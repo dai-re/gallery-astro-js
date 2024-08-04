@@ -41,7 +41,7 @@ const { page } = Astro.props;
                   height: entry.data.cover.height,
                   src: entry.data.cover.src,
                   width: entry.data.cover.width,
-                  format: 'avif',
+                  format: 'avif'
                 }}
                 alt={entry.data.title}
                 quality={'low'}
@@ -60,10 +60,10 @@ const { page } = Astro.props;
           class="rounded-sm bg-gray-700 px-2 py-1 text-cyan-50"
           href={page.url.prev}
         >
-          Prev
+          Sebelum
         </a>
       ) : (
-        <p class="rounded-sm bg-gray-300 px-2 py-1 text-cyan-50">Prev</p>
+        <p class="rounded-sm bg-gray-300 px-2 py-1 text-cyan-50">Sebelum</p>
       )
     }
     {page.currentPage}
@@ -73,10 +73,10 @@ const { page } = Astro.props;
           class="rounded-sm bg-gray-700 px-2 py-1 text-cyan-50"
           href={page.url.next}
         >
-          Next
+          Berikutnya
         </a>
       ) : (
-        <p class="rounded-sm bg-gray-300 px-2 py-1 text-cyan-50">Next</p>
+        <p class="rounded-sm bg-gray-300 px-2 py-1 text-cyan-50">Berikutnya</p>
       )
     }
   </div>

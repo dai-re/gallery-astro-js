@@ -26,7 +26,7 @@ const { Content } = await post.render();
     class="w-22 flex items-center self-center rounded-sm bg-gray-500 px-2 py-1 text-cyan-50"
   >
     <Icon name="arrow-big-left" class="h-4 w-4" />
-    <span class="ml-1">Back</span>
+    <span class="ml-1">Kembali</span>
   </a>
   <div
     class="content mt-4 flex flex-col-reverse gap-4 px-4 xs:grid-cols-2 xs:px-9 sm:grid sm:px-12 md:px-16 lg:px-24"
@@ -35,28 +35,28 @@ const { Content } = await post.render();
       <table class="text-gray-500">
         <tr>
           <td class="flex items-center gap-2"
-            ><Icon name="mage:caret-right-fill" />Title</td
+            ><Icon name="mage:caret-right-fill" />Judul</td
           >
           <td>:</td>
           <td>{post.data.title}</td>
         </tr>
         <tr>
           <td class="flex items-center gap-2"
-            ><Icon name="mage:alarm-clock-fill" />Date Upload</td
+            ><Icon name="mage:alarm-clock-fill" />Waktu Diunggah</td
           >
           <td>:</td>
           <td>{post.data.upload}</td>
         </tr>
         <tr>
           <td class="flex items-center gap-2"
-            ><Icon name="mage:alarm-clock-fill" />Date Take</td
+            ><Icon name="mage:alarm-clock-fill" />Waktu Pemotretan</td
           >
           <td>:</td>
           <td>{post.data.take}</td>
         </tr>
         <tr>
           <td class="flex items-center gap-2"
-            ><Icon name="mage:camera-fill" />Ap</td
+            ><Icon name="mage:camera-fill" />Bukaan Lensa</td
           >
           <td>:</td>
           <td>{post.data.ap}</td>
@@ -70,21 +70,21 @@ const { Content } = await post.render();
         </tr>
         <tr>
           <td class="flex items-center gap-2">
-            <Icon name="mage:lens-fill" />Lens</td
+            <Icon name="mage:lens-fill" />Lensa</td
           >
           <td>:</td>
           <td>{post.data.lens}</td>
         </tr>
         <tr>
           <td class="flex items-center gap-2">
-            <Icon name="mage:eye-fill" />Focus</td
+            <Icon name="mage:eye-fill" />Fokus</td
           >
           <td>:</td>
           <td>{post.data.focus}</td>
         </tr>
         <tr>
           <td class="flex items-center gap-2">
-            <Icon name="mage:file-2" />Description</td
+            <Icon name="mage:file-2" />Deskripsi</td
           >
           <td>:</td>
           <td>{post.data.description}</td>
@@ -110,12 +110,12 @@ const { Content } = await post.render();
         transition:name={post.slug}
         height={300}
       />
-      click image to full view!
+      Sentuh gambar untuk memperbesar
     </div>
   </div>
   <div class="flex grow flex-col justify-between">
     <div class="prose flex w-full max-w-full grow flex-col p-9">
-      <b>Extra: </b>
+      <b>Tambahan: </b>
       <Content />
     </div>
   </div>
@@ -143,7 +143,7 @@ const { Content } = await post.render();
       target="_blank"
       class="bg-gray-700 p-1 font-bold text-white"
     >
-      Zoom
+      Perbesar
     </a>
   </div>
 </div>
