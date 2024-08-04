@@ -123,15 +123,27 @@ const { Content } = await post.render();
 <div
   class="full-image absolute hidden h-screen w-screen flex-col items-center justify-center gap-4 bg-slate-600/35 backdrop-blur-sm"
 >
-  <Image
-    src={post.data.cover}
-    alt={post.data.title}
-    quality={'high'}
-    format={'webp'}
-  />
-  <button
-    class="bg-gray-700 p-1 font-bold text-white"
-    onclick="document.querySelector('.full-image').classList.toggle('!flex'); document.body.classList.toggle('overflow-hidden')"
-    >Close</button
-  >
+  <div class="max-h-[500px]">
+    <Image
+      class="max-h-[500px] w-auto"
+      src={post.data.cover}
+      alt={post.data.title}
+      quality={'high'}
+      format={'webp'}
+    />
+  </div>
+  <div class="flex gap-2">
+    <button
+      class="bg-gray-700 p-1 font-bold text-white"
+      onclick="document.querySelector('.full-image').classList.toggle('!flex'); document.body.classList.toggle('overflow-hidden')"
+      >Close</button
+    >
+    <a
+      href={post.data.cover.src}
+      target="_blank"
+      class="bg-gray-700 p-1 font-bold text-white"
+    >
+      Zoom
+    </a>
+  </div>
 </div>
