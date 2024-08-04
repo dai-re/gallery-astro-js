@@ -9,15 +9,13 @@ const allImages = defineCollection({
       upload: z.string(),
       take: z.string(),
       description: z.string(),
-      cover: image(),
+      cover: image().optional(),
       lens: z.string(),
       focus: z.string(),
-      model: z
-        .object({
-          name: z.string(),
-          url: z.string()
-        })
-        .optional()
+      model: z.object({
+        name: z.string().optional(),
+        url: z.string().optional()
+      })
     })
 });
 
